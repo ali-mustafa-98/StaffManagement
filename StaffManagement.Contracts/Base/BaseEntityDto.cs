@@ -8,5 +8,5 @@
 /// <typeparam name="TKey"></typeparam>
 public record BaseEntityDto<TKey>
 {
-	public TKey Id { get;set; }
+    public TKey Id { get; set; }
 }

@@ -15,7 +15,10 @@ public class StaffRepository : EfCoreRepository<Staff, StaffManagementDbContext,
 	public IQueryable<Staff> WithNoTracking()
 	{
 		var query = GetQueryable();
-		//query =  query.Include(x => x.SomeNavproperty);
+		//Load the nav properties (in case we need them)
+		//Here we are using eager loading (I usually use lazy loading but I thought this may be more simple for the small demo)
+		query = query.Include(x => x.StaffDesignations)
+						.ThenInclude(x => x.Designation);
 		return query.AsNoTracking();
 	}
 }

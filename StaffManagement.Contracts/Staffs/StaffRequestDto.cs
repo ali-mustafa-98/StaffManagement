@@ -4,5 +4,6 @@ public record StaffRequestDto : PagedAndSortedRequestDto
 {
     public string? Search { get; set; }
 
-    //Other properties
+    public List<Guid>? DesignationIds { get; set; }
+    //Other filers will be here
 }
